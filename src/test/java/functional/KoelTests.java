@@ -22,7 +22,7 @@ public class KoelTests {
 
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 10, 300);
+        wait = new WebDriverWait(driver, 10, 500);
 
         // Pre-condition
         driver.get("https://bbb.testpro.io");
@@ -121,5 +121,11 @@ public class KoelTests {
 
         playListField.sendKeys("Roxette");
         playListField.sendKeys(Keys.RETURN);
+
+        // Assertion
+        By playlistNameLocator = By.xpath("(//*[contains(text(),'Roxette')])[4]");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(playlistNameLocator));
+        WebElement playlistName = driver.findElement(playlistNameLocator);
+        Assert.assertTrue(playlistName.isDisplayed());
     }
 }
