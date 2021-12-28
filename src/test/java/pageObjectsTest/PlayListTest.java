@@ -1,8 +1,10 @@
 package pageObjectsTest;
 
+import com.github.javafaker.Faker;
 import helpers.TestDataGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -34,14 +36,18 @@ public class PlayListTest {
     @Test
     public void playListTest_createPlayList_playListCreated(){
 
-        String playListName = TestDataGenerator.getRandomString(5);
+//        String playListName = TestDataGenerator.getRandomString(5);
+        Faker faker = new Faker();
+        String playListName = faker.lordOfTheRings().character();
         System.out.println(playListName);
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
         MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
-        mainPage.createPlayList(playListName);
-
+        // Save created unique ID
+        String playlistID = mainPage.createPlayList(playListName);
+        // Assert created playlist
+        Assert.assertTrue(mainPage.playlistExist(playlistID,playListName));
 
     }
 

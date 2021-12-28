@@ -103,7 +103,7 @@ public class KoelTests {
         loginButton.click();
         Thread.sleep(2000);
 
-        // Create a play list
+        // Create a play list - Plus Button
         // Click on New Play List Plus button
         By newPlayListIconLocator = By.xpath("//*[@title='Create a new playlist']");
         wait.until(ExpectedConditions.visibilityOfElementLocated(newPlayListIconLocator));
