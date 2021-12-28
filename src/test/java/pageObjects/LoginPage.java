@@ -17,6 +17,7 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 5, 500);
+
     }
 
     // create functions which will return email/password/button fields/element
