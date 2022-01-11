@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,7 +23,7 @@ public class MainPage extends BasePage{
         }
     }
 
-    // create function (getter) which will return play list elements / fields
+    // create function (getter) which will return play list elements / fields - locators
     private WebElement getPlusButton(){
         By plusButtonLocator = By.xpath("//*[@title='Create a new playlist']");
         wait.until(ExpectedConditions.elementToBeClickable(plusButtonLocator));
@@ -43,19 +44,26 @@ public class MainPage extends BasePage{
         getNewPlayList().click();
         getNewPlaylistInput().sendKeys(playListName);
         getNewPlaylistInput().sendKeys(Keys.RETURN);
-        // Assertion that playlist has been created
+        // Assert that playlist has been created
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='success show']")));
         String url = driver.getCurrentUrl();
+        System.out.println(url);
         // Split String to few parts - url and unique ID
-        String [] parts = url.split("/");
-        // the unique ID is teh 6 part - index 5
-        System.out.println(parts[5]);
-        return parts[5];
+        String [] splitUrlString = url.split("/");
+        // the unique ID is the 6th part of the url - index 5
+        System.out.println(splitUrlString[5]);
+        return splitUrlString[5];
 
     }
 
     private WebElement getPlaylist(String id){
         return driver.findElement(By.xpath("//*[@href='#!/playlist/"+id+"']"));
+    }
+
+    private WebElement editField(){
+        By editFieldLocator = By.xpath("//*[@class='playlist playlist editing']/input");
+        wait.until(ExpectedConditions.elementToBeClickable(editFieldLocator));
+        return driver.findElement(editFieldLocator);
     }
 
     public boolean playlistExist(String playlistID, String playListName) {
@@ -66,5 +74,23 @@ public class MainPage extends BasePage{
     }
 }
 
+    public void  renamePlaylist(String playlistID, String newName) {
+        // Here I found playlist and saved in the variable
+        WebElement playlist = getPlaylist(playlistID);
+        //This will scroll the page till the element is found
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();", playlist);
+        // double click. In this case I use Action to click
+        Actions actions = new Actions(driver);
+        actions.doubleClick(playlist).perform();
+        // select all in edit field
+        editField().sendKeys(Keys.CONTROL + "a");
+        editField().sendKeys(newName);
+        editField().sendKeys(Keys.RETURN);
+        // I need to wait for the second green pop-up to appear - playlist created and then renamed
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='success show' and contains (text(),'"+newName+"')]")));
+
+
     }
+}
 
