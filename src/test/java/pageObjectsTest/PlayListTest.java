@@ -19,7 +19,7 @@ public class PlayListTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         // Save created unique ID
         String playlistID = mainPage.createPlayList(playListName);
         // Assert created playlist
@@ -35,7 +35,7 @@ public class PlayListTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         // Save created unique ID
         String playlistID = mainPage.createPlayList(playListName);
 
@@ -58,7 +58,7 @@ public class PlayListTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         // Save created unique ID
         String playlistID = mainPage.createPlayList(playListName);
         // Assert created playlist
@@ -74,7 +74,7 @@ public class PlayListTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         // Save created unique ID
         String playlistID = mainPage.createPlayList(playListName);
 
@@ -97,7 +97,7 @@ public class PlayListTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         // Save created unique ID
         String playlistID = mainPage.createPlayList(playListName);
         // Assert created playlist
@@ -113,7 +113,7 @@ public class PlayListTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         // Save created unique ID
         String playlistID = mainPage.createPlayList(playListName);
 
@@ -126,7 +126,7 @@ public class PlayListTest extends BaseTest{
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void playListTest_createPlayList_playListCreated03(){
 
 //        String playListName = TestDataGenerator.getRandomString(5);
@@ -136,7 +136,7 @@ public class PlayListTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         // Save created unique ID
         String playlistID = mainPage.createPlayList(playListName);
         // Assert created playlist
@@ -144,7 +144,7 @@ public class PlayListTest extends BaseTest{
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void playListTest_renamePlayList_playlistRenamed03(){
 
         Faker faker = new Faker();
@@ -152,7 +152,7 @@ public class PlayListTest extends BaseTest{
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         // Save created unique ID
         String playlistID = mainPage.createPlayList(playListName);
 

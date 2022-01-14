@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         Assert.assertTrue(mainPage.isOpen());
     }
 
@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "wrongPassword");
+        MainPage mainPage = loginPage.loginToApp(username, incorrectPassword);
         Assert.assertTrue(loginPage.isError());
 
     }
@@ -31,7 +31,7 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         Assert.assertTrue(mainPage.isOpen());
     }
 
@@ -40,7 +40,7 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "wrongPassword");
+        MainPage mainPage = loginPage.loginToApp(username, incorrectPassword);
         Assert.assertTrue(loginPage.isError());
 
     }
@@ -50,7 +50,7 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         Assert.assertTrue(mainPage.isOpen());
     }
 
@@ -59,7 +59,7 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "wrongPassword");
+        MainPage mainPage = loginPage.loginToApp(username, incorrectPassword);
         Assert.assertTrue(loginPage.isError());
 
     }
@@ -69,7 +69,7 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username, password);
         Assert.assertTrue(mainPage.isOpen());
     }
 
@@ -78,7 +78,7 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("nargiz.rza@gmail.com", "wrongPassword");
+        MainPage mainPage = loginPage.loginToApp(username, incorrectPassword);
         Assert.assertTrue(loginPage.isError());
 
     }

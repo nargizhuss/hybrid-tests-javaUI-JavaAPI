@@ -17,6 +17,9 @@ public class BaseTest {
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected String url;
+    protected String username;
+    protected String password;
+    protected String incorrectPassword;
 
     @BeforeMethod
     public void startUp() {
@@ -26,11 +29,11 @@ public class BaseTest {
 //        driver = BrowserFabric.getWebDriver(BrowserType.OPERA);
 //        driver = BrowserFabric.getWebDriver(BrowserType.EDGE);
         driver = BrowserFabric.getWebDriver(BrowserType.CHROME);
-
-
-
         wait = new WebDriverWait(driver, 10, 500);
         url = "https://bbb.testpro.io";
+        username = "nargiz.rza@gmail.com";
+        password = "te$t$tudent";
+        incorrectPassword = "incorrectPassword";
 
     }
 

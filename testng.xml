@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Master test suite">
+<suite name="Master test suite" parallel="classes" thread-count="3">
     <test name="Selenium tests">
         <classes>
             <class name="pageObjectsTest.LoginTest">
@@ -35,8 +35,8 @@
                     <include name="playListTest_renamePlayList_playlistRenamed01"/>
                     <include name="playListTest_createPlayList_playListCreated02"/>
                     <include name="playListTest_renamePlayList_playlistRenamed02"/>
-                    <include name="playListTest_createPlayList_playListCreated03"/>
-                    <include name="playListTest_renamePlayList_playlistRenamed03"/>
+                    <exclude name="playListTest_createPlayList_playListCreated03"/>
+                    <exclude name="playListTest_renamePlayList_playlistRenamed03"/>
                 </methods>
             </class>
             

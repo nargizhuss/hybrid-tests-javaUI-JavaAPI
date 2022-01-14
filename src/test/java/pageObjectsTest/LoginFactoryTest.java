@@ -12,7 +12,7 @@ public class LoginFactoryTest extends BaseTest {
     public void loginTestFactory_correctLogin_loggedToApp(){
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.open(url);
-        MainPage mainPage = loginPageFactory.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPageFactory.loginToApp(username, password);
         Assert.assertTrue(mainPage.isOpen());
     }
 
@@ -21,7 +21,7 @@ public class LoginFactoryTest extends BaseTest {
 
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.open(url);
-        loginPageFactory.loginToApp("nargiz.rza@gmail.com", "wrongPassword");
+        loginPageFactory.loginToApp(username, incorrectPassword);
         Assert.assertTrue(loginPageFactory.isError());
 
     }
@@ -30,7 +30,7 @@ public class LoginFactoryTest extends BaseTest {
     public void loginTestFactory_correctLogin_loggedToApp01(){
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.open(url);
-        MainPage mainPage = loginPageFactory.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPageFactory.loginToApp(username, password);
         Assert.assertTrue(mainPage.isOpen());
     }
 
@@ -39,7 +39,7 @@ public class LoginFactoryTest extends BaseTest {
 
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.open(url);
-        loginPageFactory.loginToApp("nargiz.rza@gmail.com", "wrongPassword");
+        loginPageFactory.loginToApp(username, incorrectPassword);
         Assert.assertTrue(loginPageFactory.isError());
 
     }
@@ -48,7 +48,7 @@ public class LoginFactoryTest extends BaseTest {
     public void loginTestFactory_correctLogin_loggedToApp02(){
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.open(url);
-        MainPage mainPage = loginPageFactory.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPageFactory.loginToApp(username, password);
         Assert.assertTrue(mainPage.isOpen());
     }
 
@@ -57,7 +57,7 @@ public class LoginFactoryTest extends BaseTest {
 
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.open(url);
-        loginPageFactory.loginToApp("nargiz.rza@gmail.com", "wrongPassword");
+        loginPageFactory.loginToApp(username, incorrectPassword);
         Assert.assertTrue(loginPageFactory.isError());
 
     }
@@ -66,7 +66,7 @@ public class LoginFactoryTest extends BaseTest {
     public void loginTestFactory_correctLogin_loggedToApp03(){
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.open(url);
-        MainPage mainPage = loginPageFactory.loginToApp("nargiz.rza@gmail.com", "te$t$tudent");
+        MainPage mainPage = loginPageFactory.loginToApp(username, password);
         Assert.assertTrue(mainPage.isOpen());
     }
 
@@ -75,7 +75,7 @@ public class LoginFactoryTest extends BaseTest {
 
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.open(url);
-        loginPageFactory.loginToApp("nargiz.rza@gmail.com", "wrongPassword");
+        loginPageFactory.loginToApp(username, incorrectPassword);
         Assert.assertTrue(loginPageFactory.isError());
 
     }
