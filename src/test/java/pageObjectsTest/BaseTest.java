@@ -11,6 +11,7 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 public class BaseTest {
 
@@ -21,8 +22,10 @@ public class BaseTest {
     protected String password;
     protected String incorrectPassword;
 
+
+    @Parameters({"url", "username", "password", "incorrectPassword"})
     @BeforeMethod
-    public void startUp() {
+    public void startUp(String url, String username, String password, String incorrectPassword) {
     // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 
 //        driver = BrowserFabric.getWebDriver(BrowserType.FIREFOX);
@@ -30,10 +33,10 @@ public class BaseTest {
 //        driver = BrowserFabric.getWebDriver(BrowserType.EDGE);
         driver = BrowserFabric.getWebDriver(BrowserType.CHROME);
         wait = new WebDriverWait(driver, 10, 500);
-        url = "https://bbb.testpro.io";
-        username = "nargiz.rza@gmail.com";
-        password = "te$t$tudent";
-        incorrectPassword = "incorrectPassword";
+        this.url = url;
+        this.username = username;
+        this.password = password;
+        this.incorrectPassword = incorrectPassword;
 
     }
 
