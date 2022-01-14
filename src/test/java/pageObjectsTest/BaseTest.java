@@ -1,5 +1,7 @@
 package pageObjectsTest;
 
+import enums.BrowserType;
+import helpers.BrowserFabric;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,14 +20,12 @@ public class BaseTest {
 
     @BeforeMethod
     public void startUp() {
+    // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 
-        // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-
-
-
-
-
-
+//        driver = BrowserFabric.getWebDriver(BrowserType.FIREFOX);
+//        driver = BrowserFabric.getWebDriver(BrowserType.OPERA);
+//        driver = BrowserFabric.getWebDriver(BrowserType.EDGE);
+        driver = BrowserFabric.getWebDriver(BrowserType.CHROME);
 
 
 

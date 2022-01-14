@@ -24,11 +24,26 @@ public class MainPage extends BasePage{
     }
 
     // create function (getter) which will return play list elements / fields - locators
-    private WebElement getPlusButton(){
+    private void clickPlusButton(){
         By plusButtonLocator = By.xpath("//*[@title='Create a new playlist']");
-        wait.until(ExpectedConditions.elementToBeClickable(plusButtonLocator));
-        return driver.findElement(plusButtonLocator);
-    }
+//        wait.until(ExpectedConditions.elementToBeClickable(plusButtonLocator));
+        // custom wait - 20 attempts to click on the element
+        for (int i=0; i<20; i++){
+            try {
+            driver.findElement(plusButtonLocator).click();
+            return;
+            } catch (NoSuchElementException | ElementClickInterceptedException err){
+                try {
+                    Thread.sleep(200);
+                } catch(InterruptedException ignored){}
+
+                }
+            }
+            throw new TimeoutException("Element not found");
+
+        }
+
+
 
     private WebElement getNewPlayList(){
         return driver.findElement(By.xpath("//*[contains(text(),'New Playlist')]"));
@@ -40,7 +55,7 @@ public class MainPage extends BasePage{
 
     public String createPlayList(String playListName) {
 
-        getPlusButton().click();
+        clickPlusButton();
         getNewPlayList().click();
         getNewPlaylistInput().sendKeys(playListName);
         getNewPlaylistInput().sendKeys(Keys.RETURN);
