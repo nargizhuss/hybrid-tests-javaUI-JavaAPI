@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Master test suite" parallel="classes" thread-count="3">
+    <parameter name="url" value="https://bbb.testpro.io"/>
+    <parameter name="username" value="nargiz.rza@gmail.com"/>
+    <parameter name="password" value="te$t$tudent"/>
+    <parameter name="incorrectPassword" value="incorrectPassword"/>
+    <test name="Selenium tests">
+        <classes>
+            <class name="pageObjectsTest.LoginTest">
+                <methods>
+                    <include name="loginTest_correctCredentials_loggedToApp"/>
+                    <include name="loginTest_incorrectCredentials_redFrame"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

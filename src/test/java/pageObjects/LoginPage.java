@@ -1,5 +1,7 @@
 package pageObjects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +14,6 @@ public class LoginPage extends BasePage{
     // Constructor
     public LoginPage(WebDriver driver) {
         super(driver);
-
 
     }
 
@@ -30,6 +31,7 @@ public class LoginPage extends BasePage{
     }
 
     public MainPage loginToApp(String username, String password){
+
         getEmailField().sendKeys(username);
         getPasswordField().sendKeys(password);
         getLoginButton().click();
