@@ -38,12 +38,6 @@
                 <methods>
                     <include name="playListTest_createPlayList_playListCreated"/>
                     <include name="playListTest_renamePlayList_playlistRenamed"/>
-                    <include name="playListTest_createPlayList_playListCreated01"/>
-                    <include name="playListTest_renamePlayList_playlistRenamed01"/>
-                    <include name="playListTest_createPlayList_playListCreated02"/>
-                    <include name="playListTest_renamePlayList_playlistRenamed02"/>
-                    <exclude name="playListTest_createPlayList_playListCreated03"/>
-                    <exclude name="playListTest_renamePlayList_playlistRenamed03"/>
                 </methods>
             </class>
             
