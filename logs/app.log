@@ -1,0 +1,2 @@
+2022-01-15 17:41:45,739 DEBUG l.Listeners [TestNG-test=Selenium tests-1] Started test loginTest_correctCredentials_loggedToApp
+2022-01-15 17:41:57,012 DEBUG l.Listeners [TestNG-test=Selenium tests-1] Started test loginTest_incorrectCredentials_redFrame
