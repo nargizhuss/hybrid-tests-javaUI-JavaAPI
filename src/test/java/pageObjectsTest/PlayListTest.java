@@ -12,7 +12,7 @@ public class PlayListTest extends BaseTest{
 
 
     @Test(retryAnalyzer = RetryAnalyzer.class)
-    public void flackyTest() {
+    public void flakyTest() {
         if (count ++== 2) {
             Assert.assertTrue(true);
         } else {
