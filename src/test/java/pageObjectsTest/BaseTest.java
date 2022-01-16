@@ -3,7 +3,9 @@ package pageObjectsTest;
 import enums.BrowserType;
 import helpers.BrowserFabric;
 import helpers.Screenshot;
+import helpers.Token;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,6 +16,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+import pageObjects.MainPage;
 
 public class BaseTest {
 
@@ -23,6 +26,7 @@ public class BaseTest {
     protected String username;
     protected String password;
     protected String incorrectPassword;
+    protected String token;
 
 
     @Parameters({"url", "username", "password", "incorrectPassword"})
@@ -30,15 +34,13 @@ public class BaseTest {
     public void startUp(String url, String username, String password, String incorrectPassword) {
     // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 
-//        driver = BrowserFabric.getWebDriver(BrowserType.FIREFOX);
-//        driver = BrowserFabric.getWebDriver(BrowserType.OPERA);
-//        driver = BrowserFabric.getWebDriver(BrowserType.EDGE);
         driver = BrowserFabric.getWebDriver(BrowserType.CHROME);
         wait = new WebDriverWait(driver, 10, 500);
         this.url = url;
         this.username = username;
         this.password = password;
         this.incorrectPassword = incorrectPassword;
+        token = Token.get(username, password);
 
     }
 
@@ -50,6 +52,15 @@ public class BaseTest {
 
         Thread.sleep(5000);
         driver.quit();
+
+    }
+
+    public MainPage login(String token){
+        driver.get(url);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("localStorage.setItem(arguments[0],arguments[1])","jwt-token","\""+token+"\"");
+        driver.navigate().refresh();
+        return new MainPage(driver);
 
     }
 

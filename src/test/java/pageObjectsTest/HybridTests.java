@@ -18,14 +18,14 @@ public class HybridTests extends BaseTest {
 
     private Faker faker;
     private int playlistId;
-    private String token;
+
 
 
     @BeforeMethod
     public void createPlaylist(){
         // initializing faker
         faker = new Faker();
-        token = Token.get(username, password);
+
         // Generate a random artist name
         PlaylistRequest playlistRequest = new PlaylistRequest(faker.artist().name());
         System.out.println(playlistRequest.getName());
@@ -66,17 +66,12 @@ public class HybridTests extends BaseTest {
     }
 
     @Test
-    public void hybrid_renamePlayList_playlistRenamed(){
+    public void hybrid_renamePlayList_playlistRenamed() throws InterruptedException {
 
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp(username, password);
-
-
+        MainPage mainPage = login(token);
         String newName = faker.ancient().god();
         mainPage.renamePlaylist(playlistId+"",newName);
-
-
+        Thread.sleep(5000);
         // Assert created playlist
         Assert.assertTrue(mainPage.playlistExist(playlistId+"",newName));
 
