@@ -5,6 +5,7 @@ import helpers.Token;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.PlaylistRequest;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -29,6 +30,7 @@ public class PlaylistApiTests {
         faker = new Faker();
         // Generate a random artist name
         PlaylistRequest playlistRequest = new PlaylistRequest(faker.artist().name());
+        System.out.println(playlistRequest.getName());
 
         // Function given returns a response
         Response response = given()
@@ -67,6 +69,28 @@ public class PlaylistApiTests {
 
     @Test
     public void renamePlaylist(){
+
+        PlaylistRequest newPlaylistRequest = new PlaylistRequest(faker.artist().name());
+        System.out.println(newPlaylistRequest.getName());
+        // Function given returns a response
+        Response response = given()
+                .baseUri("https://bbb.testpro.io/")
+                .basePath("api/playlist/" +playlistId)
+                .header("Content-type", "application/json")
+                .header("Accept", "application/json")
+                .header("Authorization", "Bearer "+ token)
+                .body(newPlaylistRequest)
+                .when()
+                .patch()
+                .then()
+                .statusCode(200)
+                .extract()
+                .response();
+
+        JsonPath json = response.jsonPath();
+        String newName = json.getString("name");
+        Assert.assertEquals(newName,newPlaylistRequest.getName());
+
 
     }
 
