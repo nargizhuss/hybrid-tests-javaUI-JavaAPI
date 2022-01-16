@@ -12,7 +12,7 @@
         <classes>
             <class name="pageObjectsTest.PlayListTest">
                 <methods>
-                    <include name="flackyTest"/>
+                    <include name="playListTest_createPlayList_playListCreated"/>
                 </methods>
             </class>
         </classes>

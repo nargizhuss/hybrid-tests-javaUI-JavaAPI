@@ -26,3 +26,5 @@
 2022-01-15 18:35:33,208 DEBUG l.Listeners [TestNG-test=Selenium tests-1] Started test flackyTest
 2022-01-15 18:35:39,098 DEBUG l.Listeners [TestNG-test=Selenium tests-1] Started test flackyTest
 2022-01-15 18:35:44,908 DEBUG l.Listeners [TestNG-test=Selenium tests-1] Started test flackyTest
+2022-01-15 18:57:08,016 DEBUG l.Listeners [TestNG-test=Selenium tests-1] Started test playListTest_createPlayList_playListCreated
+2022-01-15 18:57:16,785 ERROR l.Listeners [TestNG-test=Selenium tests-1] Failed test playListTest_createPlayList_playListCreated

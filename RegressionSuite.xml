@@ -14,30 +14,19 @@
                 <methods>
                     <include name="loginTest_correctCredentials_loggedToApp"/>
                     <include name="loginTest_incorrectCredentials_redFrame"/>
-                    <include name="loginTest_correctCredentials_loggedToApp01"/>
-                    <include name="loginTest_incorrectCredentials_redFrame01"/>
-                    <include name="loginTest_correctCredentials_loggedToApp02"/>
-                    <include name="loginTest_incorrectCredentials_redFrame02"/>
-                    <include name="loginTest_correctCredentials_loggedToApp03"/>
-                    <include name="loginTest_incorrectCredentials_redFrame03"/>
                 </methods>
             </class>
             <class name="pageObjectsTest.LoginFactoryTest">
                 <methods>
                     <include name="loginTestFactory_correctLogin_loggedToApp"/>
                     <include name="loginTest_incorrectCredentials_redFrame"/>
-                    <include name="loginTestFactory_correctLogin_loggedToApp01"/>
-                    <include name="loginTest_incorrectCredentials_redFrame01"/>
-                    <include name="loginTestFactory_correctLogin_loggedToApp02"/>
-                    <include name="loginTest_incorrectCredentials_redFrame02"/>
-                    <include name="loginTestFactory_correctLogin_loggedToApp03"/>
-                    <include name="loginTest_incorrectCredentials_redFrame03"/>
                 </methods>
             </class>
             <class name="pageObjectsTest.PlayListTest">
                 <methods>
                     <include name="playListTest_createPlayList_playListCreated"/>
                     <include name="playListTest_renamePlayList_playlistRenamed"/>
+                    <include name="flakyTest"/>
                 </methods>
             </class>
             
