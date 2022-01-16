@@ -29,7 +29,6 @@
                     <include name="flakyTest"/>
                 </methods>
             </class>
-            
         </classes>
         
         
