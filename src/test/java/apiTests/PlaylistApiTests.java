@@ -1,9 +1,11 @@
 package apiTests;
 
 import com.github.javafaker.Faker;
+import helpers.Token;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.PlaylistRequest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,6 +15,11 @@ public class PlaylistApiTests {
     private Faker faker;
     private int playlistId;
     private String token;
+
+    @BeforeClass
+    public void getToken(){
+        token = Token.get("nargiz.rza@gmail.com", "te$t$tudent");
+    }
 
 
     @BeforeMethod
