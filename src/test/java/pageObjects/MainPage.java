@@ -72,7 +72,9 @@ public class MainPage extends BasePage{
     }
 
     private WebElement getPlaylist(String id){
-        return driver.findElement(By.xpath("//*[@href='#!/playlist/"+id+"']"));
+        By playlistLocator = By.xpath("//*[@href='#!/playlist/"+id+"']");
+        wait.until(ExpectedConditions.elementToBeClickable(playlistLocator));
+        return driver.findElement(playlistLocator);
     }
 
     private WebElement editField(){

@@ -10,10 +10,9 @@
     <parameter name="incorrectPassword" value="incorrectPassword"/>
     <test name="Selenium tests">
         <classes>
-            <class name="pageObjectsTest.LoginTest">
+            <class name="pageObjectsTest.HybridTests">
                 <methods>
-                    <include name="loginTest_correctCredentials_loggedToApp"/>
-                    <include name="loginTest_incorrectCredentials_redFrame"/>
+                    <include name="hybrid_renamePlayList_playlistRenamed"/>
                 </methods>
             </class>
         </classes>
