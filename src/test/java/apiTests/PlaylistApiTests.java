@@ -5,6 +5,7 @@ import helpers.Token;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.PlaylistRequest;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -49,6 +50,19 @@ public class PlaylistApiTests {
         playlistId = json.getInt("id");
         System.out.println(playlistId);
 
+    }
+
+    @AfterMethod
+    public void deletePlaylist(){
+
+        given()
+                .baseUri("https://bbb.testpro.io/")
+                .basePath("api/playlist"+playlistId)
+                .header("Content-type", "application/json")
+                .header("Accept", "application/json")
+                .header("Authorization", "Bearer "+ token)
+                .when()
+                .delete();
     }
 
     @Test
